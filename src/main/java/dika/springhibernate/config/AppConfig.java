@@ -21,12 +21,8 @@ import java.util.Properties;
 @ComponentScan(basePackages = "dika.springhibernate")
 public class AppConfig {
 
-    private final Environment env;
-
     @Autowired
-    public AppConfig(Environment env) {
-        this.env = env;
-    }
+    private Environment env;
 
     @Bean
     public DataSource getDataSource() {
