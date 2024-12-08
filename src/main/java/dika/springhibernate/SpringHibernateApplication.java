@@ -31,5 +31,7 @@ public class SpringHibernateApplication {
             System.out.println("Email = " + user.getEmail());
             System.out.println();
         }
+
+        context.close();
     }
 }
