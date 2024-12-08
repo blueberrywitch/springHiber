@@ -20,7 +20,7 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    @SuppressWarnings("uncheckd")
+    @SuppressWarnings("unchecked")
     public List<User> listUsers() {
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from dika.springhibernate.model.User");
         return query.getResultList();

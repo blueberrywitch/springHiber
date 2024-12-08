@@ -1,10 +1,12 @@
 package dika.springhibernate.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +26,9 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy="user")
+    private Car car;
+
     public User() {
     }
 
@@ -31,6 +36,13 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public User(String firstName, String lastName, String email, Car car) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.car = car;
     }
 
     public Long getId() {
@@ -63,5 +75,9 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCar() {
+        return car.getModel() + car.getSeries();
     }
 }
