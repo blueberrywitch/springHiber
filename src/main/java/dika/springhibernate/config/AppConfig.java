@@ -18,10 +18,11 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:application.properties")
 @EnableTransactionManagement
-@ComponentScan(basePackages= "dika.springhibernate")
+@ComponentScan(basePackages = "dika.springhibernate")
 public class AppConfig {
 
-    private Environment env;
+    private final Environment env;
+
     @Autowired
     public AppConfig(Environment env) {
         this.env = env;

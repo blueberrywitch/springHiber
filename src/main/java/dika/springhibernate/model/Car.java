@@ -26,7 +26,7 @@ public class Car {
     private int series;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "id")
     private User user;
 
     public Car(String model, int series) {
@@ -39,4 +39,10 @@ public class Car {
         this.series = series;
         this.user = user;
     }
+
+
+    public String toStirng() {
+        return "Car{" + "id=" + id + ", model=" + model + ", series=" + series + '}';
+    }
+
 }
